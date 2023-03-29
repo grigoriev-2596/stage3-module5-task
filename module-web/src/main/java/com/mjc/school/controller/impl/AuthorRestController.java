@@ -9,9 +9,8 @@ import com.mjc.school.service.dto.AuthorDtoResponse;
 import com.mjc.school.service.dto.AuthorWithNewsResponse;
 import com.mjc.school.service.query.AuthorServiceSearchParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -48,10 +47,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Get all authors")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received all authors"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received all authors"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/v1" + AUTHORS_BASE_URI)
@@ -69,10 +68,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Get author by id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received the author by its id"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received the author by its id"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/v1" + AUTHORS_BASE_URI + "/{id:\\d+}")
@@ -86,10 +85,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Create an author")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "The author was created successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 201, message = "The author was created successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/v1" + AUTHORS_BASE_URI, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -103,10 +102,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Update an author")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "The author was updated successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "The author was updated successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @PatchMapping(value = "/v1" + AUTHORS_BASE_URI + "/{id:\\d+}", consumes = "application/json-patch+json")
@@ -120,10 +119,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Delete author")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "The author was deleted successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 204, message = "The author was deleted successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/v1" + AUTHORS_BASE_URI + "/{id:\\d+}")
@@ -134,10 +133,10 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Get authors with the amount of news")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "Successfully retrieved authors with the amount of news"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 204, message = "Successfully retrieved authors with the amount of news"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1" + AUTHORS_BASE_URI + "/with-news-amount")

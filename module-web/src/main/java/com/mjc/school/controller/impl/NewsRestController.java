@@ -10,9 +10,8 @@ import com.mjc.school.service.TagService;
 import com.mjc.school.service.dto.*;
 import com.mjc.school.service.query.NewsServiceSearchParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -56,10 +55,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Get all news")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received all news"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received all news"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/v1" + NEWS_BASE_URI)
@@ -77,10 +76,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Get news by id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received a news by its id"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received a news by its id"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}")
@@ -94,10 +93,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Create a news")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "News was created successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 201, message = "News was created successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/v1" + NEWS_BASE_URI, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -111,10 +110,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Update a news")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "News was updated successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "News was updated successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @PatchMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}", consumes = "application/json-patch+json")
@@ -128,10 +127,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Delete news")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "204", description = "News was deleted successfully"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 204, message = "News was deleted successfully"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}")
@@ -143,10 +142,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Get tags by news id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received tags by news id"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received tags by news id"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}" + TAGS_BASE_URI)
@@ -161,10 +160,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Get comments by news id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received comments by news id"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received comments by news id"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}" + COMMENTS_BASE_URI)
@@ -179,10 +178,10 @@ public class NewsRestController implements NewsController {
 
     @ApiOperation(value = "Get author by news id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successfully received the author by news id"),
-            @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
-            @ApiResponse(responseCode = "404", description = "The resource you were trying to reach is not found"),
-            @ApiResponse(responseCode = "500", description = "Application failed to process the request")
+            @ApiResponse(code = 200, message = "Successfully received the author by news id"),
+            @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
+            @ApiResponse(code = 500, message = "Application failed to process the request")
     })
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/v1" + NEWS_BASE_URI + "/{id:\\d+}" + AUTHORS_BASE_URI)
