@@ -8,6 +8,7 @@ import com.mjc.school.service.dto.AuthorDtoRequest;
 import com.mjc.school.service.dto.AuthorDtoResponse;
 import com.mjc.school.service.dto.AuthorWithNewsResponse;
 import com.mjc.school.service.query.AuthorServiceSearchParams;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -45,7 +46,7 @@ public class AuthorRestController implements AuthorController {
         this.authorWithNewsPageAssembler = authorWithNewsPageAssembler;
     }
 
-    @Operation(summary = "Get all authors")
+    @ApiOperation(value = "Get all authors")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received all authors"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -66,7 +67,7 @@ public class AuthorRestController implements AuthorController {
         return modelPage;
     }
 
-    @Operation(summary = "Get author by id")
+    @ApiOperation(value = "Get author by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received the author by its id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -83,7 +84,7 @@ public class AuthorRestController implements AuthorController {
         return model;
     }
 
-    @Operation(summary = "Create an author")
+    @ApiOperation(value = "Create an author")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "The author was created successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -100,7 +101,7 @@ public class AuthorRestController implements AuthorController {
         return model;
     }
 
-    @Operation(summary = "Update an author")
+    @ApiOperation(value = "Update an author")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The author was updated successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -117,7 +118,7 @@ public class AuthorRestController implements AuthorController {
         return model;
     }
 
-    @Operation(summary = "Delete author")
+    @ApiOperation(value = "Delete author")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "The author was deleted successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -131,7 +132,7 @@ public class AuthorRestController implements AuthorController {
         authorService.deleteById(id);
     }
 
-    @Operation(summary = "Get authors with the amount of news")
+    @ApiOperation(value = "Get authors with the amount of news")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Successfully retrieved authors with the amount of news"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),

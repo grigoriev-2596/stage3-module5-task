@@ -9,6 +9,7 @@ import com.mjc.school.service.CommentService;
 import com.mjc.school.service.TagService;
 import com.mjc.school.service.dto.*;
 import com.mjc.school.service.query.NewsServiceSearchParams;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -53,7 +54,7 @@ public class NewsRestController implements NewsController {
         this.pageAssembler = pageAssembler;
     }
 
-    @Operation(summary = "Get all news")
+    @ApiOperation(value = "Get all news")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received all news"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -74,7 +75,7 @@ public class NewsRestController implements NewsController {
         return modelPage;
     }
 
-    @Operation(summary = "Get news by id")
+    @ApiOperation(value = "Get news by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received a news by its id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -91,7 +92,7 @@ public class NewsRestController implements NewsController {
         return model;
     }
 
-    @Operation(summary = "Create a news")
+    @ApiOperation(value = "Create a news")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "News was created successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -108,7 +109,7 @@ public class NewsRestController implements NewsController {
         return model;
     }
 
-    @Operation(summary = "Update a news")
+    @ApiOperation(value = "Update a news")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "News was updated successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -125,7 +126,7 @@ public class NewsRestController implements NewsController {
         return model;
     }
 
-    @Operation(summary = "Delete news")
+    @ApiOperation(value = "Delete news")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "News was deleted successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -140,7 +141,7 @@ public class NewsRestController implements NewsController {
     }
 
 
-    @Operation(summary = "Get tags by news id")
+    @ApiOperation(value = "Get tags by news id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received tags by news id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -158,7 +159,7 @@ public class NewsRestController implements NewsController {
         return modelCollection;
     }
 
-    @Operation(summary = "Get comments by news id")
+    @ApiOperation(value = "Get comments by news id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received comments by news id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -176,7 +177,7 @@ public class NewsRestController implements NewsController {
         return modelCollection;
     }
 
-    @Operation(summary = "Get author by news id")
+    @ApiOperation(value = "Get author by news id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received the author by news id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),

@@ -7,6 +7,7 @@ import com.mjc.school.service.BaseService;
 import com.mjc.school.service.dto.TagDtoRequest;
 import com.mjc.school.service.dto.TagDtoResponse;
 import com.mjc.school.service.query.TagServiceSearchParams;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -41,7 +42,7 @@ public class TagRestController implements BaseController<TagDtoRequest, TagDtoRe
         this.pageAssembler = pagedAssembler;
     }
 
-    @Operation(summary = "Get all tags")
+    @ApiOperation(value = "Get all tags")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received all tags"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -62,7 +63,7 @@ public class TagRestController implements BaseController<TagDtoRequest, TagDtoRe
         return modelPage;
     }
 
-    @Operation(summary = "Get tag by id")
+    @ApiOperation(value = "Get tag by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received a tag by its id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -79,7 +80,7 @@ public class TagRestController implements BaseController<TagDtoRequest, TagDtoRe
         return model;
     }
 
-    @Operation(summary = "Create a tag")
+    @ApiOperation(value = "Create a tag")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Tag was created successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -96,7 +97,7 @@ public class TagRestController implements BaseController<TagDtoRequest, TagDtoRe
         return model;
     }
 
-    @Operation(summary = "Update a tag")
+    @ApiOperation(value = "Update a tag")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Tag was updated successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -113,7 +114,7 @@ public class TagRestController implements BaseController<TagDtoRequest, TagDtoRe
         return model;
     }
 
-    @Operation(summary = "Delete tag")
+    @ApiOperation(value = "Delete tag")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Tag was deleted successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),

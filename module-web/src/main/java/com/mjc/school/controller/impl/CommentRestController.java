@@ -7,6 +7,7 @@ import com.mjc.school.service.BaseService;
 import com.mjc.school.service.dto.CommentDtoRequest;
 import com.mjc.school.service.dto.CommentDtoResponse;
 import com.mjc.school.service.query.CommentServiceSearchParams;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -41,7 +42,7 @@ public class CommentRestController implements BaseController<CommentDtoRequest, 
         this.pageAssembler = pageAssembler;
     }
 
-    @Operation(summary = "Get all comments")
+    @ApiOperation(value = "Get all comments")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received all comments"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -61,7 +62,7 @@ public class CommentRestController implements BaseController<CommentDtoRequest, 
         return modelPage;
     }
 
-    @Operation(summary = "Get comment by id")
+    @ApiOperation(value = "Get comment by id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully received a comment by its id"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -78,7 +79,7 @@ public class CommentRestController implements BaseController<CommentDtoRequest, 
         return model;
     }
 
-    @Operation(summary = "Create a comment")
+    @ApiOperation(value = "Create a comment")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Comment was created successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -95,7 +96,7 @@ public class CommentRestController implements BaseController<CommentDtoRequest, 
         return model;
     }
 
-    @Operation(summary = "Update a comment")
+    @ApiOperation(value = "Update a comment")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Comment was updated successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),
@@ -112,7 +113,7 @@ public class CommentRestController implements BaseController<CommentDtoRequest, 
         return model;
     }
 
-    @Operation(summary = "Delete comment")
+    @ApiOperation(value = "Delete comment")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "204", description = "Comment was deleted successfully"),
             @ApiResponse(responseCode = "400", description = "Application cannot process the request due to a client error"),

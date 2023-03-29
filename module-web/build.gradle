@@ -16,5 +16,5 @@ dependencies {
 
     implementation "com.github.java-json-tools:json-patch:$jsonPatchVersion"
     implementation "org.flywaydb:flyway-core:$flywayVersion"
-    implementation "org.springdoc:springdoc-openapi-ui:$springdocOpenapiVersion"
+    implementation "io.springfox:springfox-boot-starter:$springfoxBootVersion"
 }
