@@ -9,8 +9,8 @@ import com.mjc.school.service.dto.AuthorDtoResponse;
 import com.mjc.school.service.dto.AuthorWithNewsResponse;
 import com.mjc.school.service.query.AuthorServiceSearchParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -133,7 +133,7 @@ public class AuthorRestController implements AuthorController {
 
     @ApiOperation(value = "Get authors with the amount of news")
     @ApiResponses(value = {
-            @ApiResponse(code = 204, message = "Successfully retrieved authors with the amount of news"),
+            @ApiResponse(code = 200, message = "Successfully retrieved authors with the amount of news"),
             @ApiResponse(code = 400, message = "Application cannot process the request due to a client error"),
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found"),
             @ApiResponse(code = 500, message = "Application failed to process the request")
