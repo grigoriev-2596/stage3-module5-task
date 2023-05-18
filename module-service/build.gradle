@@ -15,6 +15,12 @@ dependencies {
     annotationProcessor "org.mapstruct:mapstruct-processor:$mapStructVersion"
     implementation "com.github.java-json-tools:json-patch:$jsonPatchVersion"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonJsr310Version"
+}
 
+bootJar {
+    enabled = false
+}
 
+jar {
+    enabled = true
 }

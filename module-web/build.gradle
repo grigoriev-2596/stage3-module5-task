@@ -18,3 +18,7 @@ dependencies {
     implementation "org.flywaydb:flyway-core:$flywayVersion"
     implementation "io.springfox:springfox-boot-starter:$springfoxBootVersion"
 }
+
+jar {
+    enabled = true
+}
