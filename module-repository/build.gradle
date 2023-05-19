@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'org.springframework.boot'
     id 'io.spring.dependency-management'
+    id 'war'
 }
 
 dependencies {
@@ -12,10 +13,10 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 }
 
-bootJar {
+bootWar {
     enabled = false
 }
 
-jar {
+war {
     enabled = true
 }
