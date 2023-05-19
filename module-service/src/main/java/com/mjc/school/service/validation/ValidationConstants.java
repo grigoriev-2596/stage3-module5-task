@@ -1,6 +1,9 @@
 package com.mjc.school.service.validation;
 
 public class ValidationConstants {
+
+    private ValidationConstants() {}
+
     public static final int AUTHOR_NAME_MIN_SIZE = 3;
     public static final int AUTHOR_NAME_MAX_SIZE = 15;
 

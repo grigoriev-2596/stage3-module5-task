@@ -12,27 +12,40 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 public class LinkHelper {
 
+    private LinkHelper() {
+    }
+
     public static void addLinksToComment(EntityModel<CommentDtoResponse> commentModel) {
-        commentModel.add(linkTo(methodOn(CommentRestController.class).getById(commentModel.getContent().id())).withSelfRel());
-        commentModel.add(linkTo(methodOn(NewsRestController.class).getById(commentModel.getContent().newsId())).withRel("news"));
+        CommentDtoResponse content = commentModel.getContent();
+        if (content == null) return;
+        commentModel.add(linkTo(methodOn(CommentRestController.class).getById(content.id())).withSelfRel());
+        commentModel.add(linkTo(methodOn(NewsRestController.class).getById(content.newsId())).withRel("news"));
     }
 
     public static void addLinksToAuthor(EntityModel<AuthorDtoResponse> authorModel) {
-        authorModel.add(linkTo(methodOn(AuthorRestController.class).getById(authorModel.getContent().id())).withSelfRel());
+        AuthorDtoResponse content = authorModel.getContent();
+        if (content == null) return;
+        authorModel.add(linkTo(methodOn(AuthorRestController.class).getById(content.id())).withSelfRel());
     }
 
     public static void addLinksToAuthorWithNewsAmount(EntityModel<AuthorWithNewsResponse> authorModel) {
-        authorModel.add(linkTo(methodOn(AuthorRestController.class).getById(authorModel.getContent().id())).withSelfRel());
+        AuthorWithNewsResponse content = authorModel.getContent();
+        if (content == null) return;
+        authorModel.add(linkTo(methodOn(AuthorRestController.class).getById(content.id())).withSelfRel());
     }
 
     public static void addLinksToTag(EntityModel<TagDtoResponse> tagModel) {
-        tagModel.add(linkTo(methodOn(TagRestController.class).getById(tagModel.getContent().id())).withSelfRel());
+        TagDtoResponse content = tagModel.getContent();
+        if (content == null) return;
+        tagModel.add(linkTo(methodOn(TagRestController.class).getById(content.id())).withSelfRel());
     }
 
     public static void addLinksToNews(EntityModel<NewsDtoResponse> newsModel) {
-        newsModel.add(linkTo(methodOn(NewsRestController.class).getById(newsModel.getContent().id())).withSelfRel());
-        newsModel.add(linkTo(methodOn(NewsRestController.class).getAuthorByNewsId(newsModel.getContent().id())).withRel("author"));
-        newsModel.add(linkTo(methodOn(NewsRestController.class).getTagsByNewsId(newsModel.getContent().id())).withRel("tags"));
-        newsModel.add(linkTo(methodOn(NewsRestController.class).getCommentsByNewsId(newsModel.getContent().id())).withRel("comments"));
+        NewsDtoResponse content = newsModel.getContent();
+        if (content == null) return;
+        newsModel.add(linkTo(methodOn(NewsRestController.class).getById(content.id())).withSelfRel());
+        newsModel.add(linkTo(methodOn(NewsRestController.class).getAuthorByNewsId(content.id())).withRel("author"));
+        newsModel.add(linkTo(methodOn(NewsRestController.class).getTagsByNewsId(content.id())).withRel("tags"));
+        newsModel.add(linkTo(methodOn(NewsRestController.class).getCommentsByNewsId(content.id())).withRel("comments"));
     }
 }

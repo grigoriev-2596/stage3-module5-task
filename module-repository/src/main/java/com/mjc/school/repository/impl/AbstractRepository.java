@@ -23,7 +23,7 @@ public abstract class AbstractRepository<T extends BaseEntity<K>, K, P> implemen
     @PersistenceContext
     protected EntityManager entityManager;
 
-    public AbstractRepository() {
+    protected AbstractRepository() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
         entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];
     }

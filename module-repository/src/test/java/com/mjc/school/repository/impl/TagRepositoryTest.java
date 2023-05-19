@@ -47,7 +47,7 @@ public class TagRepositoryTest {
         TagEntity actual = tagRepository.create(toCreate);
 
         assertEquals(actual.getName(), expectedName);
-        assertEquals(actual.getId(), 3L);
+        assertEquals(3L, actual.getId());
     }
 
     @Test

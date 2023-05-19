@@ -1,6 +1,9 @@
 package com.mjc.school.constant;
 
 public class ApiConstant {
+
+    private ApiConstant() {}
+
     public static final String API_BASE_URI = "/api";
     public static final String AUTHORS_BASE_URI = "/authors";
     public static final String NEWS_BASE_URI = "/news";
