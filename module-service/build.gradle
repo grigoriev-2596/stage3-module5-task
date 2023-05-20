@@ -2,7 +2,6 @@ plugins {
     id 'java-library'
     id 'org.springframework.boot'
     id 'io.spring.dependency-management'
-    id 'war'
 }
 
 dependencies {
@@ -18,10 +17,10 @@ dependencies {
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonJsr310Version"
 }
 
-bootWar {
+bootJar {
     enabled = false
 }
 
-war {
+jar {
     enabled = true
 }
