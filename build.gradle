@@ -1,5 +1,6 @@
 plugins {
     id 'java-base'
+    id 'java'
     id "org.sonarqube" version "3.5.0.2730"
 }
 
@@ -9,6 +10,7 @@ wrapper {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'jacoco'
     group = 'com.mjc.school'
 
     sourceCompatibility = javaVersion
@@ -24,6 +26,7 @@ subprojects {
     }
     test {
         useJUnitPlatform()
+        finalizedBy jacocoTestReport
     }
 
     tasks.withType(JavaCompile) {
@@ -34,4 +37,23 @@ subprojects {
         ]
     }
 
+    jacocoTestReport {
+        dependsOn test
+        reports {
+            xml.enabled true
+        }
+    }
 }
+
+sonarqube {
+    properties {
+        property 'sonar.host.url', 'http://localhost:9000'
+        property 'sonar.login', 'sqp_ac93630ce224bf12373631736b29c83a2438a7d6'
+        property 'sonar.projectKey', 'stage4_module1'
+    }
+}
+
+tasks.named('sonarqube').configure {
+    dependsOn test
+}
+
