@@ -1,5 +1,6 @@
 pipeline {
   agent any
+
   stages {
     stage('build') {
       steps {
@@ -8,9 +9,15 @@ pipeline {
     }
 
     stage('sonarqube') {
+      environment {
+        SONAR_AUTH_TOKEN = credentials('sonarqube-cred')
+      }
       steps {
         withSonarQubeEnv(installationName: 'sonarqube-server', credentialsId: 'sonarqube-cred') {
-          sh './gradlew sonar'
+          sh "./gradlew sonar \
+                -Dsonar.projectKey=${projectKey} \
+                -Dsonar.host.url=${sonarUrl} \
+                -Dsonar.login=${SONAR_AUTH_TOKEN}"
         }
 
       }
