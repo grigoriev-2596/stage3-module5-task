@@ -9,11 +9,19 @@ pipeline {
 
     stage('sonarqube') {
       steps {
-        withSonarQubeEnv(installationName: 'sonarqube-server', credentialsId: '371bf57e-6472-4aa8-b788-d4636a1b6e85') {
+        withSonarQubeEnv(installationName: 'sonarqube-server', credentialsId: 'sonarqube-cred') {
           sh './gradlew sonar'
         }
 
       }
+    }
+
+    stage("Quality Gate") {
+        steps {
+            timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+            }
+        }
     }
 
     stage('deploy') {

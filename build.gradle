@@ -45,14 +45,6 @@ subprojects {
     }
 }
 
-sonarqube {
-    properties {
-        property 'sonar.host.url', 'http://localhost:9000'
-        property 'sonar.login', 'sqp_ac93630ce224bf12373631736b29c83a2438a7d6'
-        property 'sonar.projectKey', 'stage4_module1'
-    }
-}
-
 tasks.named('sonarqube').configure {
     dependsOn test
 }
